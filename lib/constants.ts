@@ -7,6 +7,7 @@ export const SITE_CONFIG = {
     name: 'Tim',
     email: 'tim@heybubitstim.com',
     github: 'simpletim76',
+    twitter: '@simpletim76',
   },
 }
 
