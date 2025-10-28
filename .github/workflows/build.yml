@@ -1,0 +1,103 @@
+name: Build & Test Portfolio Site
+
+# When this workflow runs
+on:
+  push:
+    branches: [main]  # Run on every push to main
+  pull_request:
+    branches: [main]  # Run on PRs targeting main
+  workflow_dispatch:  # Allow manual trigger from GitHub UI
+
+# Environment variables available to all jobs
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  # Job 1: Build and validate the application
+  build:
+    name: Build Next.js Application
+    runs-on: ubuntu-latest  # Use GitHub's Ubuntu runner
+
+    steps:
+      # Step 1: Get the code from your repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'  # Cache npm dependencies for faster builds
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm ci  # ci is faster and more reliable than install
+
+      # Step 4: Run linter to check code quality
+      - name: Run ESLint
+        run: npm run lint
+        continue-on-error: true  # Don't fail the build on lint errors (for now)
+
+      # Step 5: Build the Next.js application
+      - name: Build application
+        run: npm run build
+
+      # Step 6: Upload build artifacts (so you can download and inspect them)
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nextjs-build
+          path: |
+            .next
+            public
+          retention-days: 7  # Keep builds for 7 days
+
+      # Step 7: Display build info
+      - name: Build Summary
+        run: |
+          echo "✅ Build completed successfully!"
+          echo "📦 Build artifacts uploaded"
+          echo "🔍 Check the 'Artifacts' section to download the build"
+
+  # Job 2: Check for common issues (runs in parallel with build)
+  code-quality:
+    name: Code Quality Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Check TypeScript types
+      - name: Type check
+        run: npx tsc --noEmit
+        continue-on-error: true
+
+      # Check Prettier formatting
+      - name: Check formatting
+        run: npx prettier --check "**/*.{ts,tsx,js,jsx,json,css,md}"
+        continue-on-error: true
+
+      - name: Summary
+        run: echo "✅ Code quality checks completed"
+
+# Optional: Add a job for deployment (uncomment when ready)
+# deploy:
+#   name: Deploy to Server
+#   needs: build  # Only runs if build succeeds
+#   runs-on: ubuntu-latest
+#   if: github.ref == 'refs/heads/main'  # Only deploy from main branch
+#
+#   steps:
+#     - name: Deploy via SSH
+#       run: echo "Add deployment steps here (rsync, docker, etc.)"
