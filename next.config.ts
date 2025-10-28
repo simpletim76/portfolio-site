@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   experimental: {
     mdxRs: true,
   },
+  // Enable standalone output for Docker deployment
+  output: 'standalone',
 }
 
 const withMDX = createMDX({
