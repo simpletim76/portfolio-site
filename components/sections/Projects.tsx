@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import Card from '@/components/ui/Card'
 import Section from '@/components/ui/Section'
 
@@ -49,14 +50,10 @@ export default function Projects() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {projects.map((project, index) => (
-          <a
+          <Link
             key={project.title}
-            href={`#project-${project.slug}`}
-            className="block cursor-pointer"
-            onClick={(e) => {
-              e.preventDefault()
-              document.getElementById(`project-${project.slug}`)?.scrollIntoView({ behavior: 'smooth' })
-            }}
+            href={`/projects/${project.slug}`}
+            className="block"
           >
             <Card delay={index * 0.1}>
               <div className="flex flex-col h-full">
@@ -77,7 +74,7 @@ export default function Projects() {
                 </div>
               </div>
             </Card>
-          </a>
+          </Link>
         ))}
       </div>
     </Section>
