@@ -105,6 +105,39 @@ export default function WoodworkingPage() {
               patience, precision, and problem-solving while creating functional pieces that last.
             </p>
           </Card>
+
+          {/* Photo Album */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-12"
+          >
+            <h2 className="text-3xl font-bold mb-6 text-center">Project Gallery</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[1, 2, 3, 4, 5, 6].map((index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                  className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-900/20 dark:to-amber-800/20 border border-[var(--border-color)] hover:shadow-lg transition-shadow cursor-pointer group"
+                >
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center p-6">
+                      <span className="text-4xl mb-2 block">🪵</span>
+                      <p className="text-sm text-[var(--color-apple-gray)] group-hover:text-[var(--color-apple-blue)] transition-colors">
+                        Project Photo {index}
+                      </p>
+                      <p className="text-xs text-[var(--color-apple-gray)] mt-2 opacity-70">
+                        Add your photo here
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </Section>
     </main>

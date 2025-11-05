@@ -57,20 +57,29 @@ export default function HomelabPage() {
             <Card delay={0.1} hover={false}>
               <h3 className="text-xl font-semibold mb-3">Services</h3>
               <ul className="space-y-2 text-[var(--color-apple-gray)]">
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-apple-blue)]" />
+                <li className="flex items-center gap-3">
+                  <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" fill="#E57000"/>
+                  </svg>
                   Proxmox virtualization platform
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-apple-blue)]" />
+                <li className="flex items-center gap-3">
+                  <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M13.98 11.08h2.12a.19.19 0 0 0 .19-.19V8.76a.19.19 0 0 0-.19-.19h-2.12a.18.18 0 0 1-.18-.18V6.27a.18.18 0 0 1 .18-.18h2.12a.19.19 0 0 0 .19-.19V3.77a.19.19 0 0 0-.19-.19h-2.12a.18.18 0 0 1-.18-.18V1.28a.19.19 0 0 0-.19-.19H11.5a.19.19 0 0 0-.19.19V3.4a.18.18 0 0 1-.18.18H9.01a.19.19 0 0 0-.19.19V5.9c0 .1.08.18.19.18h2.12a.18.18 0 0 1 .18.18v2.12a.18.18 0 0 1-.18.18H9.01a.19.19 0 0 0-.19.19v2.13c0 .1.08.19.19.19h2.12a.18.18 0 0 1 .18.18v2.12a.18.18 0 0 1-.18.18H9.01a.19.19 0 0 0-.19.19v2.13c0 .1.08.19.19.19h2.12a.18.18 0 0 1 .18.18v2.12a.18.18 0 0 1-.18.18H9.01a.19.19 0 0 0-.19.19v2.13c0 .1.08.19.19.19h2.12a.18.18 0 0 1 .18.18v2.12c0 .1.09.19.19.19h2.12a.19.19 0 0 0 .19-.19v-2.12a.18.18 0 0 1 .18-.18h2.12a.19.19 0 0 0 .19-.19v-2.13a.19.19 0 0 0-.19-.19h-2.12a.18.18 0 0 1-.18-.18v-2.12a.18.18 0 0 1 .18-.18h2.12a.19.19 0 0 0 .19-.19v-2.13a.19.19 0 0 0-.19-.19h-2.12a.18.18 0 0 1-.18-.18v-2.12a.18.18 0 0 1 .18-.18z" fill="#2496ED"/>
+                  </svg>
                   Docker containerization
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-apple-blue)]" />
+                <li className="flex items-center gap-3">
+                  <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+                    <polyline points="13 2 13 9 20 9"/>
+                  </svg>
                   Network storage (NAS)
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-apple-blue)]" />
+                <li className="flex items-center gap-3">
+                  <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                   Media server (Plex/Jellyfin)
                 </li>
               </ul>
