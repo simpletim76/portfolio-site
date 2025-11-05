@@ -110,10 +110,10 @@ export default function Contact() {
           <p className="text-[var(--color-apple-gray)] mb-4">Or reach out directly:</p>
           <div className="flex flex-wrap justify-center gap-6">
             <a
-              href={`mailto:${SITE_CONFIG.author.email}`}
+              href={`mailto:${SITE_CONFIG.author.email}?subject=Let's%20Connect!`}
               className="text-[var(--color-apple-blue)] hover:underline"
             >
-              Email
+              {SITE_CONFIG.author.email}
             </a>
             <a
               href={`https://github.com/${SITE_CONFIG.author.github}`}
