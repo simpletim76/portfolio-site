@@ -37,7 +37,7 @@ export default function Contact() {
         transition={{ duration: 0.6 }}
         className="text-center mb-16"
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h2>
+        <h2 className="text-4xl md:text-5xl font-bold mb-4">Say Hey, Bub!</h2>
         <p className="text-xl text-[var(--color-apple-gray)] max-w-2xl mx-auto">
           Have a project in mind or want to collaborate? Let's talk!
         </p>
