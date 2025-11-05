@@ -60,7 +60,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href={`mailto:${SITE_CONFIG.author.email}`}
+                  href={`mailto:${SITE_CONFIG.author.email}?subject=Portfolio%20Inquiry`}
                   className="text-sm text-[var(--color-apple-gray)] hover:text-[var(--color-apple-blue)] transition-colors"
                 >
                   Email
