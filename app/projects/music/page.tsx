@@ -52,6 +52,28 @@ export default function MusicPage() {
             </p>
           </motion.div>
 
+          {/* SoundCloud Embed */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-12 max-w-3xl mx-auto"
+          >
+            <Card delay={0} hover={false}>
+              <iframe
+                width="100%"
+                height="166"
+                scrolling="no"
+                frameBorder="no"
+                allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1162093066&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+              />
+              <div style={{fontSize: '10px', color: '#cccccc', lineBreak: 'anywhere', wordBreak: 'normal', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', fontFamily: 'Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif', fontWeight: 100}}>
+                <a href="https://soundcloud.com/t0futim" title="the BADGUY BRIGADE" target="_blank" style={{color: '#cccccc', textDecoration: 'none'}}>the BADGUY BRIGADE</a> · <a href="https://soundcloud.com/t0futim/alien-death-ray-second-version" title="Alien Death Ray (second version)" target="_blank" style={{color: '#cccccc', textDecoration: 'none'}}>Alien Death Ray (second version)</a>
+              </div>
+            </Card>
+          </motion.div>
+
           {/* Project Details */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <Card delay={0.1} hover={false}>
