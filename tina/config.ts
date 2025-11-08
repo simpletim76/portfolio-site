@@ -7,20 +7,13 @@ const branch =
   process.env.HEAD ||
   "main";
 
-const isProduction = process.env.NODE_ENV === "production";
-
 export default defineConfig({
   branch,
 
   // Get this from tina.io - only required for production
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null,
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   // Get this from tina.io - only required for production
-  token: process.env.TINA_TOKEN || null,
-
-  // Enable local development mode when credentials are not provided
-  contentApiUrlOverride: isProduction
-    ? undefined
-    : "/api/tina/gql",
+  token: process.env.TINA_TOKEN,
 
   build: {
     outputFolder: "admin",
