@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { NAVIGATION, SITE_CONFIG } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +19,14 @@ export default function Navigation() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Convert hash-only links to full paths when not on home page
+  const getNavHref = (href: string) => {
+    if (href.startsWith('#') && pathname !== '/') {
+      return `/${href}`
+    }
+    return href
+  }
 
   return (
     <motion.nav
@@ -38,7 +48,7 @@ export default function Navigation() {
             {NAVIGATION.map((item) => (
               <Link
                 key={item.name}
-                href={item.href}
+                href={getNavHref(item.href)}
                 className="text-sm font-medium hover:text-[var(--color-apple-blue)] transition-colors"
               >
                 {item.name}
