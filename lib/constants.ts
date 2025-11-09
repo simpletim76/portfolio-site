@@ -2,7 +2,7 @@ export const SITE_CONFIG = {
   name: 'Tim',
   title: 'Tim',
   description: 'Personal portfolio showcasing my homelab projects and music production.',
-  url: 'https://localhost:3000', // Update with your Cloudflare tunnel URL
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://localhost:3000',
   author: {
     name: 'Tim',
     email: 'tim@heybubitstim.com',

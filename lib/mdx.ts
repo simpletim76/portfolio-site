@@ -5,6 +5,17 @@ import readingTime from 'reading-time'
 
 const contentDirectory = path.join(process.cwd(), 'content')
 
+/**
+ * Sanitize slug to prevent path traversal attacks
+ * Only allows alphanumeric characters, hyphens, and underscores
+ */
+function sanitizeSlug(slug: string): string {
+  if (!/^[a-zA-Z0-9_-]+$/.test(slug)) {
+    throw new Error('Invalid slug format: only alphanumeric, hyphens, and underscores allowed')
+  }
+  return slug
+}
+
 export interface BlogPost {
   slug: string
   title: string
@@ -55,9 +66,10 @@ export function getBlogPosts(): BlogPost[] {
 }
 
 export function getBlogPost(slug: string): BlogPost | undefined {
+  const sanitizedSlug = sanitizeSlug(slug)
   const blogDir = path.join(contentDirectory, 'blog')
-  const filePath = path.join(blogDir, `${slug}.mdx`)
-  const altFilePath = path.join(blogDir, `${slug}.md`)
+  const filePath = path.join(blogDir, `${sanitizedSlug}.mdx`)
+  const altFilePath = path.join(blogDir, `${sanitizedSlug}.md`)
 
   let fileContents: string
 
@@ -73,8 +85,8 @@ export function getBlogPost(slug: string): BlogPost | undefined {
   const stats = readingTime(content)
 
   return {
-    slug,
-    title: data.title || slug,
+    slug: sanitizedSlug,
+    title: data.title || sanitizedSlug,
     date: data.date || '',
     description: data.description || '',
     tags: data.tags || [],

@@ -69,7 +69,7 @@ export default function MusicPage() {
                 src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1162093066&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
               />
               <div style={{fontSize: '10px', color: '#cccccc', lineBreak: 'anywhere', wordBreak: 'normal', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', fontFamily: 'Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif', fontWeight: 100}}>
-                <a href="https://soundcloud.com/t0futim" title="the BADGUY BRIGADE" target="_blank" style={{color: '#cccccc', textDecoration: 'none'}}>the BADGUY BRIGADE</a> · <a href="https://soundcloud.com/t0futim/alien-death-ray-second-version" title="Alien Death Ray (second version)" target="_blank" style={{color: '#cccccc', textDecoration: 'none'}}>Alien Death Ray (second version)</a>
+                <a href="https://soundcloud.com/t0futim" title="the BADGUY BRIGADE" target="_blank" rel="noopener noreferrer" style={{color: '#cccccc', textDecoration: 'none'}}>the BADGUY BRIGADE</a> · <a href="https://soundcloud.com/t0futim/alien-death-ray-second-version" title="Alien Death Ray (second version)" target="_blank" rel="noopener noreferrer" style={{color: '#cccccc', textDecoration: 'none'}}>Alien Death Ray (second version)</a>
               </div>
             </Card>
           </motion.div>

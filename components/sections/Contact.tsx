@@ -39,7 +39,7 @@ export default function Contact() {
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-4">Say hey!</h2>
         <p className="text-xl text-[var(--color-apple-gray)] max-w-2xl mx-auto">
-          Have a project in mind or want to collaborate? Let's talk!
+          Have a project in mind or want to collaborate? Let&apos;s talk!
         </p>
       </motion.div>
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Button from '@/components/ui/Button'
 
@@ -30,7 +30,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
         >
-          Hey bub, it's <span className="text-[var(--color-apple-blue)]">Tim!</span>
+          Hey bub, it&apos;s <span className="text-[var(--color-apple-blue)]">Tim!</span>
         </motion.h1>
 
         <motion.p

@@ -71,7 +71,7 @@ export function HomelabProject() {
         <Card delay={0.3} hover={false}>
           <p className="text-lg text-[var(--color-apple-gray)] leading-relaxed">
             My homelab serves as a learning platform and production environment for self-hosted services.
-            From virtualization to network configuration, it's a hands-on approach to understanding
+            From virtualization to network configuration, it&apos;s a hands-on approach to understanding
             infrastructure and system administration.
           </p>
         </Card>
